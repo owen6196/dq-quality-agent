@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dq-quality-agent"
+version = "0.1.0"
+description = "Hive data quality inspection agent"
+requires-python = ">=3.9"
+dependencies = [
+  "PyYAML>=6.0",
+  "Jinja2>=3.1.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
