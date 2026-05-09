@@ -1,0 +1,76 @@
+database: ads
+table_name: ads_medr_inpatient_patient_fy_info_d_i
+partition_column: dt
+partition_value: "${biz_date}"
+primary_keys:
+  - organiz_code
+  - inpatient_no
+  - settlement_id
+  - charge_id
+columns:
+  - name: organiz_code
+    type: string
+    comment: 机构编码
+    nullable: false
+  - name: inpatient_no
+    type: string
+    comment: 住院号
+    nullable: false
+  - name: settlement_id
+    type: string
+    comment: 结算ID
+    nullable: false
+  - name: charge_id
+    type: string
+    comment: 费用明细ID
+    nullable: false
+  - name: referenced_invoice_id
+    type: string
+    comment: 关联发票ID
+    nullable: true
+  - name: charge_type
+    type: string
+    comment: 费用项目类型
+    nullable: false
+    standard_encode: FEE_ITEM
+  - name: charge_name
+    type: string
+    comment: 费用名称
+    nullable: true
+  - name: charge_amount
+    type: decimal(18,2)
+    comment: 费用金额
+    nullable: false
+  - name: pay_amount
+    type: decimal(18,2)
+    comment: 支付金额
+    nullable: true
+  - name: refund_amount
+    type: decimal(18,2)
+    comment: 退费金额
+    nullable: true
+  - name: pay_time
+    type: timestamp
+    comment: 支付时间
+    nullable: true
+  - name: create_time
+    type: timestamp
+    comment: 创建时间
+    nullable: true
+  - name: dt
+    type: string
+    comment: 分区日期
+    nullable: false
+manual_rules:
+  - rule_type: CUSTOM_SQL
+    rule_id: refund_amount_should_not_greater_than_charge_amount
+    field_name: refund_amount
+    severity: HIGH
+    expression: "nvl(CAST(t.`refund_amount` AS DOUBLE), 0) > nvl(CAST(t.`charge_amount` AS DOUBLE), 0)"
+    reason: "退费金额大于费用金额"
+  - rule_type: CUSTOM_SQL
+    rule_id: pay_amount_should_not_greater_than_charge_amount
+    field_name: pay_amount
+    severity: MEDIUM
+    expression: "nvl(CAST(t.`pay_amount` AS DOUBLE), 0) > nvl(CAST(t.`charge_amount` AS DOUBLE), 0)"
+    reason: "支付金额大于费用金额"

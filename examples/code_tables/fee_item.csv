@@ -1,0 +1,9 @@
+standard_encode,value_code,value_name
+FEE_ITEM,01,床位费
+FEE_ITEM,02,诊察费
+FEE_ITEM,03,检查费
+FEE_ITEM,04,化验费
+FEE_ITEM,05,治疗费
+FEE_ITEM,06,手术费
+FEE_ITEM,07,护理费
+FEE_ITEM,08,药品费

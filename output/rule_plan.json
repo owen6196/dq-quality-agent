@@ -1,0 +1,196 @@
+[
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__partition_not_empty",
+    "rule_type": "PARTITION_NOT_EMPTY",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "dt",
+    "severity": "CRITICAL",
+    "reason": "分区 dt=${biz_date} 无数据",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__unique_key__organiz_code_inpatient_no_settlement_id_charge_id",
+    "rule_type": "UNIQUE_KEY",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "organiz_code,inpatient_no,settlement_id,charge_id",
+    "severity": "CRITICAL",
+    "reason": "主键组合重复",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {
+      "keys": [
+        "organiz_code",
+        "inpatient_no",
+        "settlement_id",
+        "charge_id"
+      ]
+    }
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__not_null__organiz_code",
+    "rule_type": "NOT_NULL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "organiz_code",
+    "severity": "CRITICAL",
+    "reason": "字段 organiz_code 为空",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__not_null__inpatient_no",
+    "rule_type": "NOT_NULL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "inpatient_no",
+    "severity": "CRITICAL",
+    "reason": "字段 inpatient_no 为空",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__not_null__settlement_id",
+    "rule_type": "NOT_NULL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "settlement_id",
+    "severity": "CRITICAL",
+    "reason": "字段 settlement_id 为空",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__not_null__charge_id",
+    "rule_type": "NOT_NULL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "charge_id",
+    "severity": "CRITICAL",
+    "reason": "字段 charge_id 为空",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__not_null__charge_type",
+    "rule_type": "NOT_NULL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "charge_type",
+    "severity": "HIGH",
+    "reason": "字段 charge_type 为空",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__enum_code__charge_type__FEE_ITEM",
+    "rule_type": "ENUM_CODE",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "charge_type",
+    "severity": "HIGH",
+    "reason": "字段 charge_type 不在标准码表 FEE_ITEM 中",
+    "expression": null,
+    "standard_encode": "FEE_ITEM",
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__not_null__charge_amount",
+    "rule_type": "NOT_NULL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "charge_amount",
+    "severity": "HIGH",
+    "reason": "字段 charge_amount 为空",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__non_negative__charge_amount",
+    "rule_type": "NON_NEGATIVE",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "charge_amount",
+    "severity": "MEDIUM",
+    "reason": "金额/费用字段 charge_amount 小于 0",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__non_negative__pay_amount",
+    "rule_type": "NON_NEGATIVE",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "pay_amount",
+    "severity": "MEDIUM",
+    "reason": "金额/费用字段 pay_amount 小于 0",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__non_negative__refund_amount",
+    "rule_type": "NON_NEGATIVE",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "refund_amount",
+    "severity": "MEDIUM",
+    "reason": "金额/费用字段 refund_amount 小于 0",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__future_date__pay_time",
+    "rule_type": "FUTURE_DATE",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "pay_time",
+    "severity": "MEDIUM",
+    "reason": "日期时间字段 pay_time 晚于业务日期后一天",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__future_date__create_time",
+    "rule_type": "FUTURE_DATE",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "create_time",
+    "severity": "MEDIUM",
+    "reason": "日期时间字段 create_time 晚于业务日期后一天",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "ads_medr_inpatient_patient_fy_info_d_i__not_null__dt",
+    "rule_type": "NOT_NULL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "dt",
+    "severity": "HIGH",
+    "reason": "字段 dt 为空",
+    "expression": null,
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "refund_amount_should_not_greater_than_charge_amount",
+    "rule_type": "CUSTOM_SQL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "refund_amount",
+    "severity": "HIGH",
+    "reason": "退费金额大于费用金额",
+    "expression": "nvl(CAST(t.`refund_amount` AS DOUBLE), 0) > nvl(CAST(t.`charge_amount` AS DOUBLE), 0)",
+    "standard_encode": null,
+    "extra": {}
+  },
+  {
+    "rule_id": "pay_amount_should_not_greater_than_charge_amount",
+    "rule_type": "CUSTOM_SQL",
+    "table_name": "ads.ads_medr_inpatient_patient_fy_info_d_i",
+    "field_name": "pay_amount",
+    "severity": "MEDIUM",
+    "reason": "支付金额大于费用金额",
+    "expression": "nvl(CAST(t.`pay_amount` AS DOUBLE), 0) > nvl(CAST(t.`charge_amount` AS DOUBLE), 0)",
+    "standard_encode": null,
+    "extra": {}
+  }
+]

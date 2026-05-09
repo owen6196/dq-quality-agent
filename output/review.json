@@ -1,0 +1,7 @@
+[
+  {
+    "level": "INFO",
+    "code": "OVERWRITE_PARTITION",
+    "message": "当前使用 INSERT OVERWRITE 写入结果分区，重复执行同一天任务会覆盖历史结果。"
+  }
+]
